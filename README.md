@@ -55,4 +55,4 @@ The image already includes the default config at `/app/config/config.yaml`. For 
 
 Use [`examples/compose.yml`](./examples/compose.yml) with [`examples/Caddyfile`](./examples/Caddyfile) to run the published GHCR image in front of OTLP HTTP and gRPC ingress. Replace `otel-backend` with your actual collector or backend service name.
 
-The repo-root [`compose.yml`](./compose.yml) stays for the local repo-driven deploy flow.
+The repo-root [`compose.dev.yml`](./compose.dev.yml) stays for the local repo-driven deploy flow.

@@ -26,7 +26,7 @@
 |-- examples/            # integration examples, eg Caddy + compose
 |-- .plans/              # project plans and direction notes
 |-- README.md            # quick start + project brief
-`-- compose.yml          # local stack example
+`-- compose.dev.yml      # local dev stack example
 ```
 
 - Keep `cmd/` thin. Wire deps there, not logic.
