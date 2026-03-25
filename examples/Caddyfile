@@ -1,0 +1,19 @@
+{
+	auto_https disable_redirects
+}
+
+ingest-grpc.example.com {
+	forward_auth key-keeper:8181 {
+		uri /auth
+	}
+
+	reverse_proxy otel-backend:4317
+}
+
+ingest-http.example.com {
+	forward_auth key-keeper:8181 {
+		uri /auth
+	}
+
+	reverse_proxy otel-backend:4318
+}

@@ -1,0 +1,32 @@
+server:
+  listen_addr: ":8181"
+  shutdown_timeout: 5s
+  access_log:
+    format: json
+
+rules:
+  - name: otel-http-traces
+    host:
+      type: exact
+      value: ingest-http.example.com
+    paths:
+      - type: prefix
+        value: /v1
+    validators:
+      - type: header_exact
+        header: x-api-key
+        # actual value from OTEL_INGEST_API_KEY_BASE64: change-me
+        value: ${OTEL_INGEST_API_KEY_BASE64}
+
+  - name: otel-grpc-traces
+    host:
+      type: exact
+      value: ingest-grpc.example.com
+    paths:
+      - type: prefix
+        value: /opentelemetry.proto.collector
+    validators:
+      - type: header_exact
+        header: x-api-key
+        # actual value from OTEL_INGEST_API_KEY_BASE64: change-me
+        value: ${OTEL_INGEST_API_KEY_BASE64}

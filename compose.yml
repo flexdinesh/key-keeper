@@ -1,0 +1,17 @@
+services:
+  keykeeper:
+    build:
+      context: .
+    logging:
+      driver: json-file
+      options:
+        max-size: "50m"
+        max-file: "1"
+    environment:
+      # actual value: magic-secret-key
+      OTEL_INGEST_API_KEY_BASE64: bWFnaWMtc2VjcmV0LWtleQ==
+      KEY_KEEPER_CONFIG: /app/config/config.yaml
+    volumes:
+      - ./config/config.yaml:/app/config/config.yaml:ro
+    ports:
+      - "8181:8181"
