@@ -12,7 +12,7 @@ tags:
 related_paths:
   - .github/workflows/build.yml
   - README.md
-  - examples/compose.yml
+  - examples/with-caddy/compose.yml
 ---
 
 ## Why
@@ -37,7 +37,7 @@ On pull requests, run build-only validation.
 
 On pushes to `main`, log in to GHCR with `GITHUB_TOKEN` and push `latest` plus `sha-<shortsha>` tags.
 
-Point the example compose stack at the GHCR image and align the example auth port with the image's bundled config.
+Point the example compose stack at the GHCR image and align the example auth port with the mounted config example.
 
 ## Tradeoffs
 

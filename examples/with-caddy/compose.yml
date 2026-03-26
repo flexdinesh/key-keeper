@@ -1,9 +1,12 @@
+# Example only. Edit config.yaml for your hosts, paths, and keys before use.
 services:
   key-keeper:
     image: ghcr.io/flexdinesh/key-keeper:latest
     environment:
       # actual value: change-me
       OTEL_INGEST_API_KEY_BASE64: Y2hhbmdlLW1l
+    volumes:
+      - ./config.yaml:/app/config/config.yaml:ro
     expose:
       - "8181"
 

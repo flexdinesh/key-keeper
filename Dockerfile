@@ -17,7 +17,8 @@ RUN adduser -D -H -u 10001 appuser
 WORKDIR /app
 
 COPY --from=builder /out/key-keeper /app/key-keeper
-COPY config/config.yaml /app/config/config.yaml
+
+RUN mkdir -p /app/config && chown -R appuser:appuser /app
 
 USER appuser
 
